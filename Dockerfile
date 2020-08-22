@@ -6,5 +6,6 @@ RUN mvn package
 
 FROM tomcat
 COPY --from=buildfarm /tmp/src/project/target/App42PaaS-Java-MySQL-Sample-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
+ADD WebContent/Config.properties /usr/local/tomcat/ROOT/Config.properties
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
